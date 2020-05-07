@@ -98,9 +98,218 @@
               </div>
               <div class="hotSellContent">
                   <div class="oneShop">
-                    
+                      <span>热销榜</span>
+                      <img src="../../static/image/1.webp" alt="">
+                  </div>
+                   <div class="oneShop">
+                      <span>好评榜</span>
+                      <img src="../../static/image/2.webp" alt="">
+                  </div>
+                  <div class="twoShop">
+                      <span>居家生活榜</span>
+                      <img src="../../static/image/3.webp" alt="">
+                  </div>
+                  <div class="twoShop">
+                      <span>美食酒水榜</span>
+                      <img src="../../static/image/4.webp" alt="">
+                  </div>
+                  <div class="twoShop">
+                      <span>个户清洁榜</span>
+                      <img src="../../static/image/5.webp" alt="">
+                  </div>
+                  <div class="twoShop">
+                      <span>服饰鞋包榜</span>
+                      <img src="../../static/image/6.webp" alt="">
+                  </div>
+                  <div class="twoShop">
+                      <span>数码家电榜</span>
+                      <img src="../../static/image/7.webp" alt="">
+                  </div>
+                  <div class="twoShop">
+                      <span>严选全球榜</span>
+                      <img src="../../static/image/8.webp" alt="">
+                  </div>
+                  <div class="twoShop">
+                      <span>母婴亲子榜</span>
+                      <img src="../../static/image/9.webp" alt="">
+                  </div>
+                  <div class="twoShop">
+                      <span>运动旅行榜</span>
+                      <img src="../../static/image/10.webp" alt="">
                   </div>
               </div>
+            </div>
+            <div class="popularity">
+                <div class="popularityheader">
+                  <span>人气推荐</span>
+                  <span>更多<span class='iconfont icon-arrow-right'></span></span>
+                </div>
+                <div class="popularityTopWrap">
+                  <div class="popularityTop">
+                    <img src="../../static/image/11.webp" alt="">
+                    <div class="popularityTopRight">
+                      <div class="popularityTopRightOne">
+                       <span> 母亲节特惠</span>
+                      </div>
+                      <div class="popularityTopRightTwo">
+                        <span>15分钟快速救脸，射频多1111111</span>
+                      </div>
+                      <div class="popularityTopRightThree">
+                        <span>掌心里的美容院</span>
+                      </div>
+                      <div class="popularityTopRightFour">
+                        <span>￥759</span>
+                      </div>
+                    </div>
+                  </div>
+                </div >
+                <div class="popularityBottom">
+                    <div class="popularityBottomItem">
+                        <img src="../../static/image/12.webp" alt="">
+                        <span>每一口都有七种鱼，全价猫粮11111111111111111</span>
+                        <h2>￥88</h2>
+                        <div>换购</div>
+                    </div>
+                    <div class="popularityBottomItem">
+                        <img src="../../static/image/13.webp" alt="">
+                        <span>[浙江专供]一次性日常防护口罩11111111111111111</span>
+                        <h2>￥16</h2>
+                        
+                    </div>
+                    <div class="popularityBottomItem">
+                        <img src="../../static/image/15.webp" alt="">
+                        <span>远优于欧盟标准，纯牛奶211111111111111111</span>
+                        <h2>￥88</h2>
+                        <div>换购</div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeLimit">
+              <div class="timeLimitHeader">
+                 <span>限时购</span>
+                  <span>更多<span class='iconfont icon-arrow-right'></span></span>
+              </div>
+              <div class="timeLimitCon">
+                  <div class="timeLimitConItem">
+                    <img src="../../static/image/101.webp" alt="">
+                    <span style='color :red;font-size:28px'>￥279</span>
+                    <span style='text-decoration:line-throuth'> ￥349</span>
+                  </div>
+                  <div class="timeLimitConItem">
+                    <img src="../../static/image/102.webp" alt="">
+                    <span style='color :red;font-size:28px'>￥69.9</span>
+                    <span style='text-decoration:line-throuth'> ￥79.9</span>
+                  </div>
+                  <div class="timeLimitConItem">
+                    <img src="../../static/image/103.webp" alt="">
+                    <span style='color :red;font-size:28px'>￥145</span>
+                    <span style='text-decoration:line-throuth'> ￥169</span>
+                  </div>
+                  <div class="timeLimitConItem">
+                    <img src="../../static/image/104.webp" alt="">
+                    <span style='color :red;font-size:28px'>￥219</span>
+                    <span style='text-decoration:line-throuth'> ￥299</span>
+                  </div>
+                  <div class="timeLimitConItem">
+                    <img src="../../static/image/105.webp" alt="">
+                    <span style='color :red;font-size:28px'>￥58.7</span>
+                    <span style='text-decoration:line-throuth'> ￥69</span>
+                  </div>
+                  <div class="timeLimitConItem">
+                    <img src="../../static/image/106.webp" alt="">
+                    <span style='color :red;font-size:28px'>￥109</span>
+                    <span style='text-decoration:line-throuth'> ￥129</span>
+                  </div>
+              </div>
+            </div>  
+            <div class="newShop">
+              <div class="newShopHeader">
+                 <span>新品首发</span>
+                  <span>更多<span class='iconfont icon-arrow-right'></span></span>
+              </div>
+              <div class="newShopBottom">
+                    <div class="newShopBottomItem">
+                        <img src="../../static/image/23.webp" alt="">
+                        <span>儿童一次性3D口罩30只11111111111111111</span>
+                        <h2>￥42</h2>
+                        <div>新人特价</div>
+                    </div>
+                    <div class="newShopBottomItem">
+                        <img src="../../static/image/24.webp" alt="">
+                        <span>高钙高蛋白，蟹酥酥30克11111111111111111</span>
+                        <h2>￥19</h2>
+                        
+                    </div>
+                    <div class="newShopBottomItem">
+                        <img src="../../static/image/25.webp" alt="">
+                        <span>男士吸湿速干运动基础T恤211111111111111111</span>
+                        <h2>￥49</h2>
+                        
+                    </div>
+                    <div class="newShopBottomItem">
+                        <img src="../../static/image/26.webp" alt="">
+                        <span>填过初恋的“荔”量，荔枝红茶12袋211111111111111111</span>
+                        <h2>￥39</h2>
+                    </div>
+                    <div class="newShopBottomItem">
+                        <img src="../../static/image/27.webp" alt="">
+                        <span>一滴消除尴尬气味日本一滴消臭元211111111111111111</span>
+                        <h2>￥25</h2>
+                        
+                    </div>
+                    <div class="newShopBottomItem">
+                        <img src="../../static/image/107.webp" alt="">
+                        <span>遇水发泡全自动清洁日本马桶清洁泡腾211111111111111111</span>
+                        <h2>￥10.9</h2>
+                        <div>新品尝鲜价</div>
+                    </div>
+                </div>
+            </div>
+            <div class="lastShopWrap">
+              <div class="lastShop">
+                   <div class="lastShopItem">
+                  <h1>严选超市</h1>
+                  <h3>10元凑好物</h3>
+                  <img src="../../static/image/28.webp" alt="">
+                  <img src="../../static/image/29.webp" alt="">
+              </div>
+              <div class="lastShopItem">
+                  <h1>口罩购买</h1>
+                  <h3>保供1.4/只</h3>
+                  <img src="../../static/image/30.webp" alt="">
+                  <img src="../../static/image/31.webp" alt="">
+              </div>
+              <div class="lastShopItem">
+                  <h1>员工精选</h1>
+                  <h3>天天内部价</h3>
+                  <img src="../../static/image/32.webp" alt="">
+                  <img src="../../static/image/33.webp" alt="">
+              </div>
+              <div class="lastShopItem">
+                  <h1>回购榜单</h1>
+                  <h3>口碑起值价</h3>
+                  <img src="../../static/image/34.webp" alt="">
+                  <img src="../../static/image/35.webp" alt="">
+              </div>
+              </div>
+            </div>
+            <div class="bottom">
+                <div class="top">
+                    <div class="downLoad">
+                      下载APP
+                    </div>
+                    <div class="window">
+                      电脑版
+                    </div>
+                </div>
+                <div class="bottomMin">
+                  <div class="bottom1">
+                    张景帅版权所有<span class='iconfont icon-banquan'></span>1997-2060
+                  </div>
+                  <div class="bottom2">
+                    食品经营许可证：JS0717520154425
+                  </div>
+                </div>
             </div>
             <!-- <v-shopItem></v-shopItem> -->
         <!-- </div> -->
@@ -487,15 +696,305 @@
     .hotSell
       width 100%
       height 709.938px
-      margin-bottom 20px
+      padding-bottom 20px
+      background #eee
       .hotSellHeader
         padding 0 30px
         width 690px
         height 99.984px
         font-size 32px
         line-height 99.984px
+        background white
       .hotSellContent
+        background white
+        display flex
+        flex-wrap wrap
         width 700px
         height 589.953
         padding 0 20px 20px 30px
+        .oneShop
+          flex-shrink 0
+          width 339.984px
+          height 200px
+          margin 0 10px 10px 0px
+          background #F9F3E4
+          d
+          &>img 
+            width 200px
+            height 200px
+            float right
+            line-height 200px
+          &>span 
+            margin-left 24px
+            float left
+            display block
+            margin-top 79px
+            transform translateY(-50%)
+            font-size 32px
+            position relative
+            &::after
+              width 80px
+              height 6px
+              nackground black
+              content ''
+              position absolute
+              left 0
+              bottom -10px
+              background black
+        .twoShop
+          flex-shrink 0
+          width 165px
+          height 180px
+          margin 0 10px 10px 0
+          background #f5f5f5
+          display flex
+          flex-direction column
+          justify-content center
+          align-items center
+          &>img
+            width 120px
+            height 120px
+    .popularity
+      width 750px
+      height 797.938px
+      padding-bottom 20px
+      background #eee
+      .popularityheader
+        background white
+        width 690px
+        height 99.984px
+        padding 0 30px
+        display flex
+        justify-content space-between
+        align-items center
+        &>span:nth-of-type(1)
+          font-size 32px
+        &>span:nth-of-type(2)
+          font-size 28px
+      .popularityTopWrap
+        background white
+        width 690px
+        margin 0 0px 00px 0px
+        padding 0 30px 20px
+        .popularityTop
+          background white
+          height279.984px
+          background #FEF0DF
+          display flex
+          justify-content flex-start
+          align-items center
+          &>img
+            width 279.984px
+            height 279.984px
+          .popularityTopRight
+            display flex
+            flex-direction column
+            justify-content center
+            .popularityTopRightOne
+              margin-bottom 5px
+              &>span
+                display block
+                text-align center
+                width 150px
+                padding 4px
+                border 1Px solid red
+                border-radius 20px
+                color red
+                background white
+                font-size 28px
+            .popularityTopRightTwo
+              &>span 
+                display block
+                white-space nowrap
+                width 230px
+                text-overflow ellipsis
+                overflow hidden
+                font-size 28px
+            .popularityTopRightThree
+              color #7F7F7F
+            .popularityTopRightFour
+              color red
+      .popularityBottom
+        background white
+        display flex
+        width 740px
+        height 397.969px
+        padding-left 10px
+        .popularityBottomItem
+          width 216px
+          height 384.969px
+          padding-bottom 13px
+          margin-left 20px
+          display flex 
+          flex-direction column
+          justify-content flex-start
+          &>img
+            width 216px
+            height 216px
+            background #eee
+          &>span
+            display block
+            width 216px
+            white-space pre-wrap
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+          &>h2
+            color red
+            margin 0
+          &>div
+            display inline
+            border 1Px solid red
+            color red
+            width 60px
+            text-align center
+            border-radius 10px
+    .timeLimit
+      width 100%
+      height 699.984px
+      padding-bottom 20px
+      background #eee
+      .timeLimitHeader
+        background white
+        width 690px
+        height 99.984px
+        padding 0 30px
+        display flex
+        justify-content space-between
+        align-items center
+        &>span:nth-of-type(1)
+          font-size 32px
+        &>span:nth-of-type(2)
+          font-size 28px
+      .timeLimitCon
+        wdith 710px
+        height 600px
+        padding 0 10px 0 30px
+        background white
+        display flex
+        flex-wrap wrap
+        .timeLimitConItem
+          flex-shrink 0
+          width 216px
+          height 270px
+          padding-bottom 30px
+          text-align center
+          margin-right 20px
+          &>img
+            width 216px
+            height 216px
+            background #eee
+    .newShop
+      width 750px
+      height 921.922px
+      padding-bottom 20px
+      background #eee
+      .newShopHeader
+        background white
+        width 690px
+        height 99.984px
+        padding 0 30px
+        display flex
+        justify-content space-between
+        align-items center
+        &>span:nth-of-type(1)
+          font-size 32px
+        &>span:nth-of-type(2)
+          font-size 28px
+      .newShopBottom
+        width 740px
+        height 825.938px
+        padding-left 10px
+        background white
+        display flex
+        background white
+        flex-wrap wrap
+        .newShopBottomItem
+          width 216px
+          height 384.969px
+          padding-bottom 13px
+          margin-left 20px
+          display flex 
+          flex-direction column
+          justify-content flex-start
+          &>img
+            width 216px
+            height 216px
+            background #eee
+          &>span
+            display block
+            width 216px
+            white-space pre-wrap
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+          &>h2
+            color red
+            margin 0
+          &>div
+            display inline
+            border 1Px solid red
+            color red
+            width 160px
+            text-align center
+            border-radius 10px
+    .lastShopWrap
+      background #eee
+      padding-bottom 20px
+      .lastShop
+        width 694px
+        height 565.953px
+        padding 10px 30px 20px 26px
+        background white
+        display flex
+        flex-wrap wrap
+        .lastShopItem
+          // display flex
+          // flex-direction column
+          // justify-content flex-start
+          width 322.984px
+          height 244px
+          padding 20px 0 0 20px
+          margin 4px 0 0 4px
+          background #eee
+          &>img
+            width 150px
+            height 150px
+            margin-left 4px
+          h1,h3
+            margin 0
+          h3
+            color #333
+    .bottom
+      width 710px
+      height 161.984px
+      padding 54px 20px 28px 20px
+      background #333
+      .top
+        display flex
+        justify-content center
+        margin-bottom 20px
+        .downLoad
+          text-align center
+          line-height 50px
+          height 50px
+          border 1Px solid white
+          color white
+          padding 0px 20px
+          margin-right 50px
+        .window
+          text-align center
+          line-height 50px
+          height 50px
+          border 1Px solid white
+          color white
+          padding 0px 20px
+      .bottomMin
+        color #999
+        display flex
+        flex-direction column
+        align-items center
+        justify-content center
 </style>

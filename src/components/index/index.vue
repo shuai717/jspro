@@ -12,9 +12,9 @@
             <div class="login">登录</div>
         </div>
         <div class="headerTagWarp">
-          <div class='headerTag' v-if='data.kingKongModule'>
+          <div class='headerTag' v-if='datas.kingKongModule'>
             <div class='headerTagItem' :class='currentIndex===0?"active flag0":""' @click='watchActive(0)'>推荐</div>
-            <div class='headerTagItem' v-for='(item,index) in data.kingKongModule.kingKongList' :key='index' :class='currentIndex===index+1?`active ${"flag"+(index+1)}`:""' @click='watchActive(index+1)'>{{item.text}}</div>
+            <div class='headerTagItem' v-for='(item,index) in datas.kingKongModule.kingKongList' :key='index' :class='currentIndex===index+1?`active ${"flag"+(index+1)}`:""' @click='watchActive(index+1)'>{{item.text}}</div>
           </div>
           <div class="tagMask">
               <div class="left">
@@ -33,7 +33,7 @@
             </div>
             <div class="maskBottom">
               <div class='maskBottomItem' :class='currentIndex===0?"active flag0":""' @click='watchActive(0)'>推荐</div>
-              <div class="maskBottomItem " v-for='(item,index) in data.kingKongModule.kingKongList' :key='index' :class='currentIndex===index+1?`active ${"flag"+(index+1)}`:""' @click='watchActive(index+1)'>
+              <div class="maskBottomItem " v-for='(item,index) in datas.kingKongModule.kingKongList' :key='index' :class='currentIndex===index+1?`active ${"flag"+(index+1)}`:""' @click='watchActive(index+1)'>
                   {{item.text}}
               </div>
             </div>
@@ -43,18 +43,18 @@
         <!-- <div class="mainScroll"> -->
           <!-- 轮播图 -->
             <van-swipe class="swiper" :autoplay="3000" indicator-color="white" >
-              <van-swipe-item class='swiperItem' v-for='(item,index) in data.focusList' :key='index'> 
+              <van-swipe-item class='swiperItem' v-for='(item,index) in datas.focusList' :key='index'> 
                 <img :src="item.picUrl">
               </van-swipe-item>
             </van-swipe>
             <div class="logo">
-                <div class="logoDesc" v-for='(item,index) in data.policyDescList' :key='index'>
+                <div class="logoDesc" v-for='(item,index) in datas.policyDescList' :key='index'>
                   <img :src="item.icon" alt="">
                   <span>{{item.desc}}</span>
                 </div>
             </div>
-            <div class="creaditShop" v-if='data.kingKongModule'>
-                <div class="shopItem" v-for='(item,index) in data.kingKongModule.kingKongList' :key='index'>
+            <div class="creaditShop" v-if='datas.kingKongModule'>
+                <div class="shopItem" v-for='(item,index) in datas.kingKongModule.kingKongList' :key='index'>
                   <img :src="item.picUrl" alt="">
                   <span>{{item.text}}</span>
                 </div>
@@ -186,8 +186,19 @@
             </div>
             <div class="timeLimit">
               <div class="timeLimitHeader">
-                 <span>限时购</span>
-                  <span>更多<span class='iconfont icon-arrow-right'></span></span>
+                <span>限时购</span>
+                <span>更多<span class='iconfont icon-arrow-right'></span></span>
+                <div class="time">
+                  <div class="hour">
+                    00
+                  </div>:
+                  <div class="min">
+                    00
+                  </div>:
+                  <div class="s">
+                    00
+                  </div>
+                </div>
               </div>
               <div class="timeLimitCon">
                   <div class="timeLimitConItem">
@@ -318,6 +329,7 @@
 </template>
 
 <script >
+  import moment from 'moment'
   import BScroll from 'better-scroll'
   import Vue from 'vue';
   import shopItem from './shopItem'
@@ -327,9 +339,13 @@
   export default {
     data () {
       return {
-            data:{},
+            datas:{},
             currentIndex:0,
             jiantou:false,
+            time:86400000,
+            h:"00",
+            m:"00",
+            s:"00"
       }
     },
     components: {
@@ -337,11 +353,13 @@
     },
     async mounted(){
       let resulte =await this.$http.index.getindex();
-      this.data=resulte;
+      this.datas=resulte;
       // this.initScroll()
       this.$nextTick(()=>{
         this.initScroll()
+        this.initTime()
       })
+
     },
     methods:{
       initScroll(){
@@ -354,7 +372,13 @@
         //   click:true,
         // })
         
-      },
+
+        },
+        initTime(){
+          let resulte =moment(this.time).format('HH:mm:ss')
+          console.log(resulte)
+        },
+      
       watchActive(index){
           this.currentIndex=index;
           setTimeout(()=>{
@@ -363,8 +387,6 @@
           },0)
           
           // console.log(`${".flag"+(index)}`)
-         
-          
       },
       ChangeJiantou(){
         this.jiantou=!this.jiantou
@@ -856,6 +878,7 @@
       padding-bottom 20px
       background #eee
       .timeLimitHeader
+        position relative
         background white
         width 690px
         height 99.984px
@@ -867,6 +890,19 @@
           font-size 32px
         &>span:nth-of-type(2)
           font-size 28px
+        .time
+          position absolute
+          left 150px
+          display flex
+          top 50%
+          margin-top -14px
+          color white
+          .hour
+            background black
+          .min
+            background black
+          .s
+            background black
       .timeLimitCon
         wdith 710px
         height 600px
@@ -965,6 +1001,7 @@
             margin-left 4px
           h1,h3
             margin 0
+            font-weight normal
           h3
             color #333
     .bottom

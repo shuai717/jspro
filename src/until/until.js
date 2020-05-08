@@ -10,12 +10,27 @@ export default function (axios,config={}){
 
     for(let apiname in api){
         
-        let {url,method,isparams,params,isform,toast,hooks,corsUrl,token}=api[apiname];
-
+        let {url,method,isparams,params,isform,toast,hooks,corsUrl,token,urlenCoded}=api[apiname];
+        let URL=corsUrl+url;
+        console.log(URL)
         httpObj[apiname]=async (data={})=>{
             let resulte;
             let transformData;
             let headers={};
+               
+                if(corsUrl){
+                    url=corsUrl+url
+                    corsUrl=''
+                }
+               
+               if(urlenCoded){
+                url=URL
+                url=url+'?'
+                for(let key in data){
+                    url=url+`${key}=${data[key]}`
+                }
+                    data={}
+                }
             if(isform){
                 transformData = new FormData();
                 for(let key in data){
@@ -34,10 +49,7 @@ export default function (axios,config={}){
                 }
             }
            try {
-               if(corsUrl){
-                url=corsUrl+url
-                corsUrl=''
-               }
+               
                toast && loading();
                hooks && hooks.beforeReq();
                 switch (method) {

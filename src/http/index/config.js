@@ -8,6 +8,31 @@ export default {
             corsUrl:"/3000",
             toast:true,
         },
+        getSearch:{
+            url:"/xhr/search/init.json",
+            method:"post",
+            corsUrl:"/163",
+            toast:true,
+        },
+        getSearchDatas:{
+            url:"/xhr/search/searchAutoComplete.json",
+            method:"post",
+            corsUrl:"/163",
+            toast:true,
+            urlenCoded:true
+        },
+        getIndexCateModuleData:{
+            url:"/indexCate",
+            method:"get",
+            corsUrl:"/3000",
+            toast:true,
+        },
+        getIndexCateBannerList:{
+            url:"/indexCateBannerList",
+            method:"get",
+            corsUrl:"/3000",
+            toast:true,
+        },
     },
     timeout:3000,
     hooks:{

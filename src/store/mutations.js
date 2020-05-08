@@ -1,6 +1,6 @@
-import {GETINDEX} from './mutations_type'
+import {GETSEARCHINT} from './mutations_type'
 export default{
-    [GETINDEX](state,data){
-        state.index=data;
+    [GETSEARCHINT](state,data){
+        state.seachInt=data;
     }
 }

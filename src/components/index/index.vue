@@ -3,11 +3,11 @@
       <div class="xyTop">
         <div class="header">
             <a href="##"><img src="../../static/image/wyyx.png" alt=""></a>
-            <div class="search">
+            <div class="search" @click='search'>
               <div class="fdj">
 
               </div>
-              <span>搜索商品，共26220款好物</span>
+              <span>{{seachInt}}</span>
             </div>
             <div class="login">登录</div>
         </div>
@@ -39,7 +39,7 @@
             </div>
         </div>
       </div>
-      <div class="main">
+      <div class="main" v-if='currentIndex===0'>
         <!-- <div class="mainScroll"> -->
           <!-- 轮播图 -->
             <van-swipe class="swiper" :autoplay="3000" indicator-color="white" >
@@ -325,7 +325,12 @@
             <!-- <v-shopItem></v-shopItem> -->
         <!-- </div> -->
       </div>
+      <div class="main" v-if='currentIndex!==0'>
+          <v-shopItem :index='currentIndex' :key='currentIndex'></v-shopItem>
+      </div>
+      <router-view></router-view>
   </div>
+
 </template>
 
 <script >
@@ -334,6 +339,9 @@
   import Vue from 'vue';
   import shopItem from './shopItem'
   import { Swipe, SwipeItem } from 'vant';
+  import {mapActions,mapState} from 'vuex'
+  import Meta from 'vue-meta'
+  Vue.use(Meta)
   Vue.use(Swipe);
   Vue.use(SwipeItem);
   export default {
@@ -359,9 +367,16 @@
         this.initScroll()
         this.initTime()
       })
-
+      let resulte2=await this.$http.index.getSearch();
+      
+      this.actSetSearchInit(resulte2.data.defaultKeyword.keyword)
     },
+    computed:{
+      ...mapState(['seachInt'])
+    },
+
     methods:{
+      ...mapActions(['actSetSearchInit']),
       initScroll(){
         this.scrollObj=new BScroll('.headerTagWarp',{
           scrollX:true,
@@ -390,9 +405,17 @@
       },
       ChangeJiantou(){
         this.jiantou=!this.jiantou
+      },
+      search(){
+        this.$router.push('/search')
       }
     },
-
+      metaInfo: {
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width,initial-scale=0.5,minimum-scale=0.5,maximum-scale=0.5,user-scalable=no' }
+      ]
+    },
   }
 </script>
 
@@ -476,6 +499,8 @@
               width 100%
               height 3.98px
               background red
+          &:last-of-type
+            margin-right 120px
       .tagMask
         position absolute 
         top 0

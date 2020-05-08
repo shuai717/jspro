@@ -1,6 +1,6 @@
-import {GETINDEX} from './mutations_type'
+import {GETSEARCHINT} from './mutations_type'
 export default{
-    actSetIndex(store,data){
-        store.commit(GETINDEX,data)
+    actSetSearchInit(store,data){
+        store.commit(GETSEARCHINT,data)
     }
 }

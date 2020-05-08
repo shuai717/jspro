@@ -1,1 +1,1 @@
-export const GETINDEX='getIndex';
+export const GETSEARCHINT='getSearchInt';

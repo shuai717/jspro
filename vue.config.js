@@ -13,7 +13,14 @@ module.exports={
               pathRewrite:{
                   "^/3000":""
               }
-          }
+          },
+          '/163': {
+            target:'https://m.you.163.com',
+            changeOrigin: true,
+            pathRewrite:{
+                "^/163":""
+            }
+        }
       }
       // proxy: 'http://localhost:4000'
   },

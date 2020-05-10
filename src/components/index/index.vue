@@ -25,7 +25,6 @@
               </div>
             </div>
         </div>
-
         <!-- 全部频道遮罩 -->
         <div class="mask" v-if='jiantou'>
             <div class="maskTop">

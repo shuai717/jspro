@@ -27,7 +27,7 @@ export default function (axios,config={}){
                 url=URL
                 url=url+'?'
                 for(let key in data){
-                    url=url+`${key}=${data[key]}`
+                    url=url+`${key}=${data[key]}&`
                 }
                     data={}
                 }

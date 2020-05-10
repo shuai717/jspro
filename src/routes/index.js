@@ -5,6 +5,8 @@ const category = ()=> import(/*webpackChunkName:"category"*/"../components/categ
 const personal = ()=> import(/*webpackChunkName:"personal"*/"../components/personal/personal.vue");
 const shopcar = ()=> import(/*webpackChunkName:"shopcar"*/"../components/shopcar/shopcar.vue");
 const buy = ()=> import(/*webpackChunkName:"buy"*/"../components/buy/buy.vue");
+const loginRoot = ()=> import(/*webpackChunkName:"loginRoot"*/"../components/login/loginRoot.vue");
+const login = ()=> import(/*webpackChunkName:"login"*/"../components/login/login.vue");
 // import search from '../components/index/search.vue'
 // import category from '../components/category/category.vue'
 // import personal from '../components/personal/personal.vue'
@@ -17,5 +19,7 @@ export default [
     {path:'/personal',component:personal,meta:{showFooter:true}},
     {path:'/shopcar',component:shopcar,meta:{showFooter:true}},
     {path:'/buy',component:buy,meta:{showFooter:true}},
-    {path:'/',redirect:'/category'}
+    {path:'/loginRoot',component:loginRoot,meta:{showFooter:false}},
+    {path:'/login/:id',component:login,meta:{showFooter:false},props:true},
+    {path:'/',redirect:'/index'}
 ]

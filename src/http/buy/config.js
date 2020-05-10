@@ -15,6 +15,13 @@ export default {
             corsUrl:"/163",
             toast:true,
         },
+        getNewData:{
+            url:"/topic/v1/find/recAuto.json",
+            method:"get",
+            corsUrl:"/163",
+            urlenCoded:true,
+            toast:true,
+        },
     },
     timeout:3000,
     hooks:{

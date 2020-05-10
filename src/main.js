@@ -6,6 +6,8 @@ import 'lib-flexible/flexible'
 import 'amfe-flexible'
 import store from './store/index'
 import 'vant/lib/index.css'
+import './until/vee-validate.js'
+
 Vue.config.productionTip = false
 Vue.prototype.$http=http;
 new Vue({

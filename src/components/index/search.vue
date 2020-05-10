@@ -48,7 +48,8 @@
           searchDatas:{},//默认列表
           valueData:'',//输入框的内容
           nowSearchList:[],//根据搜索内容出现的列表,
-          flag:true//节流标志
+          ispush:true,
+          timer:true,//防抖定时器
       }
     },
     components: {
@@ -60,19 +61,35 @@
         },
         async changeValue(){
             if(this.valueData){
-                
-                if(this.flag){
-                    let resulte=await this.$http.index.getSearchDatas({keywordPrefix:this.histroyDatas})
-                    this.flag=false  
-                    const {code,data}=resulte
-                    if(code==='200'){
-                        this.nowSearchList=data;
-                        this.his.unshift(this.histroyDatas)
-                        setTimeout(()=>{
-                            this.flag=true
-                        },3000)
-                    }
+                if(this.timer){
+                    //防抖上来先清一次，保证运行的是最后一次
+                    clearTimeout(this.timer)
                 }
+                    this.timer=setTimeout(async() => {
+                        let resulte=await this.$http.index.getSearchDatas({keywordPrefix:this.histroyDatas})
+                        this.ispush=true
+                        this.flag=false  
+                        const {code,data}=resulte
+                        if(code==='200'){
+                            this.nowSearchList=data;
+                            this.his.forEach((item)=>{
+                                if(item===this.valueData)
+                                {
+                                    this.ispush=false
+                                }
+                            })
+                            if(this.ispush){
+                                this.his.unshift(this.histroyDatas)
+                            }
+                            
+                            setTimeout(()=>{
+                                this.flag=true
+                                
+                            },3000)
+                        }
+                    },1000);
+                    
+                
                 
             }
 

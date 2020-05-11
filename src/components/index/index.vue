@@ -9,7 +9,7 @@
               </div>
               <span>{{seachInt}}</span>
             </div>
-            <div class="login">登录</div>
+            <div class="login"><router-link to="/loginRoot">登录</router-link></div>
         </div>
         <div class="headerTagWarp">
           <div class='headerTag' v-if='datas.kingKongModule'>

@@ -7,7 +7,7 @@ import 'amfe-flexible'
 import store from './store/index'
 import 'vant/lib/index.css'
 import './until/vee-validate.js'
-
+import 'swiper/css/swiper.css';
 Vue.config.productionTip = false
 Vue.prototype.$http=http;
 new Vue({

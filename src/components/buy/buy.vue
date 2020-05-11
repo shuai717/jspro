@@ -16,22 +16,24 @@
                       <span style='font-size:32px'>值得买</span><span style='font-size:16px'>严选好物</span><span style='font-size:16px'>用心生活</span>
                   </div>
                   <div class="swipeWrap" v-if="navList.length!=0">
-                    <van-swipe class="swipe"  indicator-color="blue" :width='90' :loop='false' ref='swipe'>
-                        <van-swipe-item  v-for="(item,index) in navList.slice(0,Math.ceil(navList.length/2))" :key='index'>
-                            <div class="item" >
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" v-for="(item,index) in navList.slice(0,Math.ceil(navList.length/2))" :key='index'>
                                 <div class="itemtop">
                                     <img :src="item.picUrl" alt="">
-                                    <span style='color :#999;font-size:12px'>{{item.mainTitle}}</span>
+                                    <span style='font-size:14px;font-weight:7000;color:black'>{{item.mainTitle}}</span>
                                     <span style='color :#999;font-size:12px'>{{item.viceTitle}}</span>
                                 </div>
                                 <div class="itembottom" v-if='navList[index+Math.ceil(navList.length/2)]'>
                                     <img :src="navList[index+Math.ceil(navList.length/2)].picUrl" alt="">
-                                    <span style='color :#999;font-size:12px'>{{navList[index+Math.ceil(navList.length/2)].mainTitle}}</span>
-                                    <span style='color :#999;font-size:12px'>{{navList[index+Math.ceil(navList.length/2)].mainTitle}}</span>
+                                    <span style='font-size:14px;font-weight:7000;color:black'>{{navList[index+Math.ceil(navList.length/2)].mainTitle}}</span>
+                                    <span style='color :#999;font-size:12px'>{{navList[index+Math.ceil(navList.length/2)].viceTitle}}</span>
                                 </div>
                             </div>
-                        </van-swipe-item>
-                    </van-swipe>
+                        </div>
+                        <!-- 如果需要分页器 -->
+                        <div class="swiper-pagination"></div>
+                    </div>
                   </div>
                 </div>
             </div>
@@ -79,6 +81,7 @@
 </template>
 
 <script >
+  import Swiper from 'swiper';   
   import Vue from 'vue'
   import Meta from 'vue-meta'
   import { Swipe, SwipeItem } from 'vant';
@@ -124,22 +127,22 @@
       this.page++
       this.waterfallList.push(...resulte3.data.result)
       this.$nextTick(()=>{
-        setTimeout(() => {
-            window.addEventListener('scroll',async ()=>{
-            let height=document.documentElement.clientHeight
-            if(this.$refs.scroll){
-              let nodeHeight=this.$refs.scroll.clientHeight
-              let nodeTop=document.documentElement.scrollTop
-              let top=nodeHeight-height+90
-              if(top<=nodeTop){
-                let resulte=await this.$http.buy.getNewData({page:this.page,size:this.size})
-                this.page++;
-                this.waterfallList.push(...resulte.data.result)
-              }
-            }
-            
-      })
-        }, 0);
+                setTimeout(() => {
+                    window.addEventListener('scroll',async ()=>{
+                          let height=document.documentElement.clientHeight
+                          if(this.$refs.scroll){
+                            let nodeHeight=this.$refs.scroll.clientHeight
+                            let nodeTop=document.documentElement.scrollTop
+                            let top=nodeHeight-height+90
+                            if(top<=nodeTop){
+                              let resulte=await this.$http.buy.getNewData({page:this.page,size:this.size})
+                              this.page++;
+                              this.waterfallList.push(...resulte.data.result)
+                            }
+                          }
+                    })
+                }, 0);
+                this.initScroll();
      })
     },
     methods:{
@@ -148,6 +151,17 @@
       },
       goCar(){
         this.$router.push('/shopcar')
+      },
+      initScroll(){
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal', // 垂直切换选项
+            slidesPerView:4,
+            // 如果需要分页器
+            pagination: {
+              el: '.swiper-pagination',
+              type:'bullets'
+            },
+          })        
       }
     }
   }
@@ -199,52 +213,44 @@
             margin 0 20px
             background white
             border-radius 20px
-            display flex
-            .swipe
+            padding-top 40px
+            box-sizing border-box
+            .swiper-container
               width 100%
-              .van-swipe__indicator
-                  width 30px
+              height 100%
+              .swiper-pagination
+                .swiper-pagination-bullet
+                  width 60px
                   height 4px
-                  background red
-                  &:last-of-type
-                    display none 
-                  &:nth-of-type(7)
-                    display none
-                  &:nth-of-type(6)
-                    display none
-              .van-swipe__track
-                // display inline-block
-                
-                .van-swipe-item
-                    // width 168px !important
-                    &:last-of-type
-                      width 920px !important
-                    .item
-                      flex-shrink 0
+                  border-radius 0
+                  &.swiper-pagination-bullet-active
+                    background #dd1a21
+              .swiper-wrapper
+                width 180px
+                height 100%
+                .swiper-slide
+                  width 180px !important
+                  .itemtop
+                    display flex
+                    flex-direction column
+                    justify-content center
+                    align-items center
+                    width 168px
+                    height 200.1px
+                    &>img 
+                      width 120px
+                      height 120px
+                  .itembottom
+                      display flex
+                      flex-direction column
+                      justify-content center
+                      align-items center
                       width 168px
-                      height 428px
-                      padding 36px 6px 6px 6px 
-                      .itemtop
-                          display flex
-                          flex-direction column
-                          justify-content center
-                          align-items center
-                          width 168px
-                          height 200.1px
-                          &>img 
-                            width 120px
-                            height 120px
-                        .itembottom
-                          display flex
-                          flex-direction column
-                          justify-content center
-                          align-items center
-                          width 168px
-                          height 200.1px
-                          margin-top 28px
-                          &>img 
-                            width 120px
-                            height 120px
+                      height 200.1px
+                      margin-top 28px
+                      &>img 
+                        width 120px
+                        height 120px
       .waterfall
         width 100%
         display flex

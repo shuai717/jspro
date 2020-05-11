@@ -62,7 +62,7 @@ Vue.use(Meta)
             this.$router.push('/search')
         },
         goCar(){
-            this.$router.push('/car')
+            this.$router.push('/shopCar')
         },
         goHome(){
             this.$router.push('/index')

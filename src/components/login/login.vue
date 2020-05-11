@@ -15,18 +15,19 @@
             <form >
                 <div class="email">
                     
-                        <input type="text" placeholder="请输入邮箱账号"  v-if='id==="2"' v-model='email'  name="email" v-validate="'required|email'" >
+                        <input type="text" ref="emailValue" placeholder="请输入邮箱账号"  v-if='id==="2"' v-model='email'  name="email" v-validate="'required|email'" >
                         <span style="color: red;" v-show="errors.has('email')">{{ errors.first('email') }}</span>
                     
                     
                         <input type="tel" placeholder="请输入手机号" v-if='id==="1"' v-model='phone'  maxlength="11"  name="phone"   v-validate="`required|phone`" >
                         <span style="color: red;" v-show="errors.has('phone')">{{ errors.first('phone') }}</span>
                     
-                    
+                        <input type="tel" placeholder="请输入账号" v-if='id==="3"' v-model='user'  maxlength="8"  name="username"   v-validate="`required|username`" >
+                        <span style="color: red;" v-show="errors.has('username')">{{ errors.first('username') }}</span>
                 </div>
                 <div class="pwd">
                     
-                        <input type="password" placeholder="请输入密码" v-if='id==="2"' v-model='pwd' maxlength="8" name="pwd" minlength="6" v-validate="'required|pwd'">
+                        <input type="password" placeholder="请输入密码" v-if='id==="2"||id==="3"' v-model='pwd' maxlength="8" name="pwd" minlength="6" v-validate="'required|pwd'">
                         <span style="color: red;" v-show="errors.has('pwd')">{{ errors.first('pwd') }}</span>
                     
                     
@@ -39,7 +40,7 @@
                     </div>
                 </div>
                 <div class="desc">
-                    <span > 注册账号</span>
+                    <span @click="gotoResgiter">注册账号</span>
                     <span>忘记密码</span>
                 </div>
                 <button class="upButton" @click.prevent='submit'>
@@ -75,6 +76,8 @@ Vue.use(Meta)
             codeNumber:'',
             emailNumber:'',
             phoneReg:/^1\d{10}/igm,
+            emailValue:'',
+            usernameNumber:''
       }
     },
     props:{
@@ -82,6 +85,11 @@ Vue.use(Meta)
     },
     components: {
 
+    },
+    mounted(){
+        if(localStorage.getItem('username')){
+            this.usernameNumber=JSON.parse(localStorage.getItem('username'))
+            }
     },
     methods:{
         goSearch(){
@@ -112,33 +120,29 @@ Vue.use(Meta)
 
                 if(this.id==="1")//手机号
                 {
-                    // if(this.phoneNumber==="")
-                    // {   
-                        
-                    //     Toast.fail({
-                    //         message:'手机号不能为空'
-                    //     })
-                    // }else
-                    //  if(this.codeNumber===''){
-                    //     Toast.fail({
-                    //         message:'验证码不能为空'
-                    //     })
-                    // }else
-                    // if(this.phoneNumber!==""){
-                    //     if(this.phoneNumber.split('').length<=3||this.phoneNumber.split('').length>=11){
-                    //         Toast.fail({
-                    //             message:'手机号的位数在4到10之间'
-                    //         })
-                    //     }
-                    // }
-                     const flag = await this.$validator.validateAll(["phone","captcha"])
+                    const flag = await this.$validator.validateAll(["phone","captcha"])
                     if(!flag) return;
                 }
                 //账号
-                else{
-                     const flag = await this.$validator.validateAll(["email","pwd"])
+                else if(this.id==="2"){
+                    const flag = await this.$validator.validateAll(["email","pwd"])
                     if(!flag) return;
+                }else if(this.id==="3"){
+                    const flag = await this.$validator.validateAll(["username","pwd"])
+                    if(!flag) return;
+                    let reslute=await this.$http.login.login({name:this.usernameNumber,pwd:this.pwdNumber})
+                    const {code,err,data}=reslute
+                    if(err){
+                        Toast(err)
+                    }else if(code===200){
+                        this.$router.push('/index')
+                        localStorage.setItem('username',JSON.stringify(this.usernameNumber))
+                        Toast('登录成功')
+                    }
                 }
+        },
+        gotoResgiter(){
+            this.$router.push('/resgiter')
         }
     },
     computed:{
@@ -157,6 +161,10 @@ Vue.use(Meta)
         email:{
             get(){return this.emailNumber},
             set(val){ this.emailNumber=val}
+        },
+        user:{
+            get(){return this.usernameNumber},
+            set(val){ this.usernameNumber=val}
         },
     }
   }

@@ -20,6 +20,9 @@
             <span class='iconfont icon-xin' style='width:20px;height:30px;line-height:30px'></span>
             <span @click='goToLogin(2)'>邮箱账号登录</span>
         </div>
+        <div class="loginByusername" @click='goToLogin(3)' style='width:100%;height:80px;background:red;line-height:80px;text-align:center;color:white;'>
+            账号密码登录
+        </div>
     </div>
     <div class="loginMethods">
         <div class="methodsItem">

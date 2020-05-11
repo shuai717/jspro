@@ -10,6 +10,8 @@ VeeValidate.Validator.localize('zh_CN', {
         captcha:"短信验证码",
         email:"邮箱号",
         pwd:"密码",
+        username:'账号',
+        confirmPassword:'确认密码'
     }
 })
 
@@ -31,4 +33,10 @@ VeeValidate.Validator.extend('pwd', {
         return /^\w+$/.test(value)
     },
     message: field => field + '只能由数字字母下划线构成'
+})
+VeeValidate.Validator.extend('username', {
+    validate: value => {
+        return /^[a-z0-9]+$/i.test(value)
+    },
+    message: field => field + '只能由数字字母构成'
 })

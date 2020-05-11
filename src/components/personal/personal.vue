@@ -4,7 +4,7 @@
           <div class="left">
             <img src="http://thirdqq.qlogo.cn/g?b=oidb&k=ILicfjGNRQhfeAtic6ch5DRQ&s=100&t=1556763157" alt="">
             <div class="lefttext">
-              <span>name</span>
+              <span>{{name}}</span>
               <span>VIP</span>
             </div>
           </div>
@@ -100,11 +100,11 @@
         </div>
       </div>
       <div class="persnalFooter">
-          <div class="text">
+          <div class="text" @click='logout'>
             退出登录
           </div>
       </div>
-      <div class="maskto">
+      <div class="maskto" v-if='maskIsShow'>
           <h1 @click='toLogin'>去登陆</h1>
       </div>
   </div>
@@ -123,7 +123,8 @@ Vue.use(Meta)
     },
     data () {
       return {
-
+            maskIsShow:true,
+            name:'name'
       }
     },
     components: {
@@ -132,6 +133,20 @@ Vue.use(Meta)
     methods:{
       toLogin(){
         this.$router.push('/loginRoot')
+      },
+      logout(){
+        if(confirm("确定要退出吗？")){
+            localStorage.clear();
+            this.$router.replace('/loginRoot')
+        }
+
+      }
+    },
+    mounted(){
+      if(localStorage.getItem('username')){
+        this.maskIsShow=false;
+
+        this.name=JSON.parse(localStorage.getItem('username'))
       }
     }
   }

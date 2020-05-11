@@ -84,14 +84,10 @@
   import Swiper from 'swiper';   
   import Vue from 'vue'
   import Meta from 'vue-meta'
-  import { Swipe, SwipeItem } from 'vant';
- 
   import { Lazyload } from 'vant';
   Vue.use(Lazyload, {
     lazyComponent: true,
   });
-  Vue.use(Swipe);
-  Vue.use(SwipeItem);
   Vue.use(Meta)
   export default {
     metaInfo: {

@@ -7,6 +7,7 @@ const shopcar = ()=> import(/*webpackChunkName:"shopcar"*/"../components/shopcar
 const buy = ()=> import(/*webpackChunkName:"buy"*/"../components/buy/buy.vue");
 const loginRoot = ()=> import(/*webpackChunkName:"loginRoot"*/"../components/login/loginRoot.vue");
 const login = ()=> import(/*webpackChunkName:"login"*/"../components/login/login.vue");
+const resgiter = ()=> import(/*webpackChunkName:"resgiter"*/"../components/resgiter/resgiter.vue");
 // import search from '../components/index/search.vue'
 // import category from '../components/category/category.vue'
 // import personal from '../components/personal/personal.vue'
@@ -21,5 +22,6 @@ export default [
     {path:'/buy',component:buy,meta:{showFooter:true}},
     {path:'/loginRoot',component:loginRoot,meta:{showFooter:false}},
     {path:'/login/:id',component:login,meta:{showFooter:false},props:true},
-    {path:'/',redirect:'/index'}
+    {path:'/resgiter',component:resgiter,meta:{showFooter:false}},
+    {path:'/',redirect:'/resgiter'}
 ]
